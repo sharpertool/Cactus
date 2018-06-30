@@ -1,4 +1,4 @@
-#coding:utf-8
+# -*- coding: utf-8 -*-
 import webbrowser
 
 from oauth2client.client import OAuth2WebServerFlow, FlowExchangeError

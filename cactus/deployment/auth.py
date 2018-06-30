@@ -1,4 +1,4 @@
-#coding:utf-8
+# -*- coding: utf-8 -*-
 import os
 import getpass
 import keyring
@@ -30,7 +30,7 @@ class BaseKeyringCredentialsManager(object):
     _password_display_name = "Password"
 
     def __init__(self, engine):
-        self.engine = engine  #TODO: Don't we want only UI and config?
+        self.engine = engine  # TODO: Don't we want only UI and config?
         self.username = None
         self.password = None
 

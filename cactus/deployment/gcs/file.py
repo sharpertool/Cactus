@@ -1,4 +1,4 @@
-#coding:utf-8
+# -*- coding: utf-8 -*-
 import io
 import base64
 import socket
@@ -44,7 +44,7 @@ class GCSFile(BaseFile):
                 return True
             raise
 
-        ignore_metadata = ["acl"] # We can't control what we'll retrieve TODO: do the best we can do!
+        ignore_metadata = ["acl"]  # We can't control what we'll retrieve TODO: do the best we can do!
 
         for k, v in self.get_metadata().items():
             if k not in ignore_metadata and remote_metadata.get(k) != v:

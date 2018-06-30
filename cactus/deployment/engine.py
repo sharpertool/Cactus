@@ -1,4 +1,4 @@
-#coding:utf-8
+# -*- coding: utf-8 -*-
 import os
 import logging
 
@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 
 class BaseDeploymentEngine(object):
     FileClass = BaseFile
-    CredentialsManagerClass = None  #TODO: Define interface?
+    CredentialsManagerClass = None  # TODO: Define interface?
 
     config_bucket_name = None
     config_bucket_website = None
@@ -82,7 +82,6 @@ class BaseDeploymentEngine(object):
             return 0.0
 
         return total_bytes_uploaded / total_bytes
-
 
     def get_connection(self):
         if self._connection is None:

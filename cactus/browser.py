@@ -83,6 +83,7 @@ s4 = """
 })()
 """
 
+
 def applescript(input):
 
     # Bail if we're not on mac os for now
@@ -102,6 +103,7 @@ def applescript(input):
 
     # return subprocess.check_output(command, shell=True)
 
+
 def _insertJavascript(urlMatch, js):
 
     apps = appsRunning(['Safari', 'Google Chrome'])
@@ -116,11 +118,14 @@ def _insertJavascript(urlMatch, js):
     if apps['Safari']:
         applescript(s2 % (urlMatch, js))
 
+
 def browserReload(url):
     _insertJavascript(url, s3)
 
+
 def browserReloadCSS(url):
     _insertJavascript(url, s4)
+
 
 def appsRunning(l):
     psdata = subprocess.check_output(['ps aux'], shell=True)

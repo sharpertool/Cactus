@@ -1,4 +1,4 @@
-#coding:utf-8
+# -*- coding: utf-8 -*-
 from __future__ import print_function
 from six.moves import urllib
 from six.moves import input
@@ -83,7 +83,7 @@ def _url_coerce_fn(r):
         raise InvalidInput("Do not leave trailing elements")
 
     if not p.path:
-        r += "/"  #TODO: Fixme once the sitemap is fixed!
+        r += "/"  # TODO: Fixme once the sitemap is fixed!
     r = r.lower()
 
     return r

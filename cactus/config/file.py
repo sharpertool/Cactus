@@ -1,4 +1,4 @@
-#coding:utf-8
+# -*- coding: utf-8 -*-
 import json
 import logging
 
@@ -14,6 +14,7 @@ class ConfigFile(object):
 
     def __init__(self, path):
         self.path = path
+        self._data = None
         self.load()
 
     def get(self, key, default=None):

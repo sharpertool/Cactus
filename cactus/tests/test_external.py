@@ -1,4 +1,4 @@
-#coding:utf-8
+# -*- coding: utf-8 -*-
 import os
 import shutil
 from cactus.static.external.exceptions import ExternalFailure

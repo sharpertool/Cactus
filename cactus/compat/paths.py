@@ -1,4 +1,4 @@
-#coding:utf-8
+# -*- coding: utf-8 -*-
 
 class VirtualPaths(object):
     def __init__(self, obj, mapping):

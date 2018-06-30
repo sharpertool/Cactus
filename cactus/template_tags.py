@@ -1,4 +1,4 @@
-#coding:utf-8
+# coding:utf-8
 import os
 import logging
 
@@ -17,7 +17,7 @@ def static(context, link_url):
     Get the path for a static file in the Cactus build.
     We'll need this because paths can be rewritten with fingerprinting.
     """
-    #TODO: Support URLS that don't start with `/static/`
+    # TODO: Support URLS that don't start with `/static/`
     site = context['__CACTUS_SITE__']
     page = context['__CACTUS_CURRENT_PAGE__']
 
@@ -28,8 +28,8 @@ def static(context, link_url):
         # For the static method we check if we need to add a prefix
         helper_keys = [
             "/static/" + link_url,
-            "/static"  + link_url,
-            "static/"  + link_url
+            "/static" + link_url,
+            "static/" + link_url
         ]
 
         for helper_key in helper_keys:
@@ -109,6 +109,7 @@ def if_current_page(context, link_url, positive=True, negative=False):
 
     return positive if page.link_url == link_url else negative
 
+
 @register.filter(is_safe=True)
 def markdown(value, arg=''):
     """
@@ -150,6 +151,7 @@ def markdown(value, arg=''):
             safe_mode = False
 
         return mark_safe(markdown2.markdown(force_text(value), extras=extras, safe_mode=safe_mode))
+
 
 register.simple_tag(takes_context=True)(static)
 register.simple_tag(takes_context=True)(url)

@@ -42,7 +42,7 @@ DEFAULT_PROVIDER = "aws"
 
 class Site(SiteCompatibilityLayer):
     _path = None
-    _parallel = PARALLEL_CONSERVATIVE  #TODO: Test me
+    _parallel = PARALLEL_CONSERVATIVE  # TODO: Test me
     _static = None
 
     VERB_UNKNOWN = 0
@@ -50,8 +50,8 @@ class Site(SiteCompatibilityLayer):
     VERB_BUILD = 2
 
     def __init__(self, path, config_paths=None, ui=None,
-        PluginManagerClass=None, ExternalManagerClass=None, DeploymentEngineClass=None,
-        verb=VERB_UNKNOWN):
+            PluginManagerClass=None, ExternalManagerClass=None, DeploymentEngineClass=None,
+            verb=VERB_UNKNOWN):
 
         # Load the config engine
         if config_paths is None:
@@ -113,8 +113,8 @@ class Site(SiteCompatibilityLayer):
         """
         We need the site url to generate the sitemap.
         """
-        #TODO: Make a "required" option in the config.
-        #TODO: Use URL tags in the sitemap
+        # TODO: Make a "required" option in the config.
+        # TODO: Use URL tags in the sitemap
 
         # if self.url is None:
         #     self.url = self.ui.prompt_url("Enter your site URL (e.g. http://example.com/)")
@@ -136,7 +136,6 @@ class Site(SiteCompatibilityLayer):
         self.script_path = os.path.join(os.getcwd(), __file__)
         self.locale_path = os.path.join(path, "locale")
 
-
     def setup(self):
         """
         Configure django to use both our template and pages folder as locations
@@ -144,7 +143,14 @@ class Site(SiteCompatibilityLayer):
         """
 
         settings = {
-            "TEMPLATE_DIRS": [self.template_path, self.page_path],
+            "TEMPLATES": {
+                "DIRS": [self.template_path, self.page_path],
+                "OPTIONS": {
+                    "builtins": [
+                        'cactus.template_tags'
+                    ]
+                }
+            },
             "INSTALLED_APPS": ['django_markwhat'],
         }
 
@@ -157,12 +163,6 @@ class Site(SiteCompatibilityLayer):
             })
 
         django.conf.settings.configure(**settings)
-
-        # - Importing here instead of the top-level makes it work on Python 3.x (!)
-        # - loading add_to_builtins from loader implictly loads the loader_tags built-in
-        # - Injecting our tags using add_to_builtins ensures that Cactus tags don't require an import
-        from django.template.loader import add_to_builtins
-        add_to_builtins('cactus.template_tags')
 
     def verify_path(self):
         """
@@ -243,8 +243,8 @@ class Site(SiteCompatibilityLayer):
         self._static = None
         self._static_resources_dict = None
 
-        #TODO: Facility to reset the site, and reload config.
-        #TODO: Currently, we can't build a site instance multiple times
+        # TODO: Facility to reset the site, and reload config.
+        # TODO: Currently, we can't build a site instance multiple times
         self.plugin_manager.reload()  # Reload in case we're running on the server # We're still loading twice!
 
         self.plugin_manager.preBuild(self)
@@ -260,7 +260,7 @@ class Site(SiteCompatibilityLayer):
         # Prepare translations
         if self.locale is not None:
             self.compile_messages()
-            #TODO: Check the command actually completes (msgfmt might not be on the PATH!)
+            # TODO: Check the command actually completes (msgfmt might not be on the PATH!)
 
         # Copy the static files
         self.buildStatic()
@@ -405,10 +405,10 @@ class Site(SiteCompatibilityLayer):
         self.listener.pause()
 
         try:
-            #TODO: Fix this.
-            #TODO: The static files should handle collection of their static folder on their own
-            #TODO: The static files should not run everything on __init__
-            #TODO: Only rebuild static files that changed
+            # TODO: Fix this.
+            # TODO: The static files should handle collection of their static folder on their own
+            # TODO: The static files should not run everything on __init__
+            # TODO: Only rebuild static files that changed
             # We need to "clear out" the list of static first. Otherwise, processors will not run again
             # They run on __init__ to run before fingerprinting, and the "built" static files themselves,
             # which are in a temporary folder, have been deleted already!
@@ -501,7 +501,7 @@ class Site(SiteCompatibilityLayer):
         logger.info('%s changed files with a size of %s' %
                      (len(changedFiles), fileSize(sum([r['size'] for r in changedFiles]))))
 
-        logger.info('\nhttp://%s\n' % self.config.get('aws-bucket-website'))  #TODO: Fix
+        logger.info('\nhttp://%s\n' % self.config.get('aws-bucket-website'))  # TODO: Fix
 
 
     def domain_setup(self):

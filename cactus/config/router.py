@@ -1,4 +1,4 @@
-#coding:utf-8
+# -*- coding: utf-8 -*-
 import logging
 
 from cactus.config.fallback import ConfigFallback
@@ -30,7 +30,6 @@ class ConfigRouter(object):
 
         logger.debug("Loaded configs: %s", ', '.join([config.path for config in self.configs]))
 
-
     def _get_nested(self, key, default=None):
         assert isinstance(default, dict)  # Don't shoot yourself in the foot.
 
@@ -49,7 +48,7 @@ class ConfigRouter(object):
 
         return default
 
-    def get(self, key, default=None, nested=False):  #TODO: Mutable default.. copy?
+    def get(self, key, default=None, nested=False):  # TODO: Mutable default.. copy?
         """
         Retrieve a config key from the first config that has it.
         Return default if no config has it.
@@ -59,7 +58,6 @@ class ConfigRouter(object):
             return self._get_nested(key, default)
         else:
             return self._get_first(key, default)
-
 
     def set(self, key, value):
         """

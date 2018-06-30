@@ -45,7 +45,7 @@ Super quick tutorial for the impatient
 
 Install Cactus with the following one liner
 
-    sudo easy_install cactus
+    pip cactus
 
 If you saw no errors, you can now generate a new project
 
@@ -294,8 +294,7 @@ This will help bots to index your pages for Google and Bing for example.
 Python Versions
 ---------------
 
-Cactus is tested on Python 2.6, 2.7, 3.4 and 3.5. It probably works on Python
-3.3 as well.
+Cactus is tested on Python 3.6. I see no practical reason to support Python 2.7 anymore. Time to move on!
 
 
   [1]: http://mickgardner.com/2011/04/27/An-Introduction-To-Static-Site-Generators.html

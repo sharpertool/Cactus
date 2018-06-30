@@ -1,4 +1,4 @@
-#coding:utf-8
+# -*- coding: utf-8 -*-
 
 # Define no-op plugin methods
 def preBuildPage(page, context, data):

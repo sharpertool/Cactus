@@ -107,7 +107,6 @@ def parse_arguments(cli, args):
     parser_domain_list = subparsers.add_parser('domain:list', help='Setup records for a domain with route 53')
     parser_domain_list.set_defaults(target=cli.domain_list)
 
-
     config_parsers = [parser_build, parser_deploy, parser_serve, parser_make_messages, parser_domain_setup, parser_domain_list]
     all_parsers = config_parsers + [parser_create]
 
@@ -130,6 +129,7 @@ def parse_arguments(cli, args):
         ns.config = [os.path.join(ns.path, 'config.json')]
 
     return ns
+
 
 def main(args):
     cli = CactusCli()

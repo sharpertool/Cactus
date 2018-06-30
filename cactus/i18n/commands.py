@@ -1,4 +1,4 @@
-#coding:utf-8
+# -*- coding: utf-8 -*-
 from django.core.management.commands.makemessages import Command as MakeMessagesCommand
 from django.core.management.commands.compilemessages import Command as CompileMessagesCommand
 

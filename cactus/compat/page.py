@@ -1,4 +1,4 @@
-#coding:utf-8
+# -*- coding: utf-8 -*-
 import os
 import logging
 
@@ -17,18 +17,18 @@ class PageContextCompatibilityPlugin(object):
         prefix = os.path.relpath(".", os.path.dirname(page.build_path))
 
         def static_url():
-            logger.warn("%s:", page.path)
-            logger.warn("{{ STATIC_URL }} is deprecated, use {% static '/static/path/to/file' %} instead.")
+            logger.warning("%s:", page.path)
+            logger.warning("{{ STATIC_URL }} is deprecated, use {% static '/static/path/to/file' %} instead.")
             return path_to_url(os.path.join(prefix, 'static'))
 
         def root_url():
-            logger.warn("%s:", page.path)
-            logger.warn("{{ ROOT_URL }} is deprecated, use {% url '/page.html' %} instead.")
+            logger.warning("%s:", page.path)
+            logger.warning("{{ ROOT_URL }} is deprecated, use {% url '/page.html' %} instead.")
             return path_to_url(prefix)
 
         def page_url():
-            logger.warn("%s:", page.path)
-            logger.warn("{{ PAGE_URL }} is deprecated, use {% current_page %} instead")
+            logger.warning("%s:", page.path)
+            logger.warning("{{ PAGE_URL }} is deprecated, use {% current_page %} instead")
             return page.final_url[1:]  # We don't want the leading slash (backwards compatibility)
 
         context.update({

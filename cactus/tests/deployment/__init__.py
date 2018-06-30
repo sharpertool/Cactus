@@ -1,4 +1,4 @@
-#coding:utf-8
+# -*- coding: utf-8 -*-
 import shutil
 import tempfile
 import unittest2 as unittest

@@ -7,7 +7,7 @@ from distutils.sysconfig import get_python_lib
 from setuptools import setup
 
 
-VERSION = "3.3.3"
+VERSION = "4.0.0"
 SKELETON_FOLDERS = ['pages', 'plugins', 'static/css', 'static/images', 'static/js', 'templates', 'locale']
 SKELETON_GLOB = ['skeleton/{0}/*'.format(folder) for folder in SKELETON_FOLDERS]
 
@@ -125,7 +125,7 @@ setup(
     version=VERSION,
     description="Static site generation and deployment.",
     long_description=open('README.md').read(),
-    url='http://github.com/koenbok/Cactus',
+    url='http://github.com/sharpertool/Cactus',
     author='Koen Bok',
     author_email='koen@madebysofa.com',
     license='BSD',
@@ -151,11 +151,8 @@ setup(
         "License :: OSI Approved :: BSD License",
         "Natural Language :: English",
         "Operating System :: OS Independent",
-        "Programming Language :: Python :: 2",
-        "Programming Language :: Python :: 2.6",
-        "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.4",
+        "Programming Language :: Python :: 3.6",
         "Topic :: Internet :: WWW/HTTP",
     ],
 )
